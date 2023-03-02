@@ -166,7 +166,7 @@ function Signup(){
               REGISTER
               </Link>
           </Button>
-          {/* <Button s>g
+          {/* <Button>
                 <Link to = "/login" style={{ color: 'white', textDecoration: 'none' }}>
                 GOOGLE SIGN IN
                 </Link>

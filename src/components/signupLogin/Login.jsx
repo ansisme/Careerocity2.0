@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React , {useState} from 'react';
 import styled from "styled-components";
 import {auth } from '../../firebase';
+import {Link } from 'react-router-dom';
 const Container = styled.div`
   background-color: #242424;
   border-radius: 6px;
@@ -108,7 +109,7 @@ function Login() {
     //frontend
   return (
     <Container>
-    
+    {/* <img src= "assets/images/careerocityLogo.jpeg" alt= "logo" /> */}
       <Form onSubmit={login}>
         <Title>Login into your account!</Title>
         <br></br>
@@ -123,7 +124,11 @@ function Login() {
           <Input type="password" placeholder="Enter Password" value = {password} onChange= {(e)=>setPassword(e.target.value)} />
         </Row>
         
-        <Button type= "submit">LOGIN</Button>
+        <Button>
+              <Link to = "/" style={{ color: 'white', textDecoration: 'none' }}>
+              LOGIN
+              </Link>
+          </Button>
         <CheckboxLabel htmlFor="agree">
           <CheckboxInput type="checkbox" id="agree" name="agree" />
           Keep me logged in
