@@ -1,114 +1,71 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React , {useState} from 'react';
-import styled from "styled-components";
 import {auth } from '../../firebase';
-const Container = styled.div`
-  background-color: #242424;
-  border-radius: 6px;
-  border: 1px solid;
-  font-family: "Poppins";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & > * {
-    margin: 10px 0;
-    width: 100%;
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
-
-const Title = styled.h2`
-  color: #fff;
-  font-size: 30px;
-`;
-
-const InputLabel = styled.label`
-  color: #fff;
-  width: 30%;
-  font-weight: 500;
-  text-align: left;
-  font-size: 15px;
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  border-radius: 4px;
-  border: solid 0.5px;
-  font-family: "Poppins", sans-serif;
- 
-  font-size: 16px;
-  width: 70%;
-  background-color: #333;
-  color: #fff;
-
-  &::placeholder {
-    color: #b3b3b3;
-  }
-`;
-
-const Button = styled.button`
-  margin: 20px 0;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #1565d8;
-  color: #fff;
-  font-family: "Poppins";
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: transparent;
-    color: #1565d8;
-  }
-`;
-
-const CheckboxLabel = styled.label`
-  display: flex;
-  align-items: center;
-  color: #fff;
-  font-weight: 500;
-  font-size: 16px;
-`;
-
-const CheckboxInput = styled.input`
-  margin-right: 10px;
-`;
+import {Link , Navigate} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import careerocityLogo from '../../assets/images/careerocityLogo.jpeg'
+import {
+  Container,
+  Form,
+  Row,
+  Title,
+  InputLabel,
+  Input,
+  Button,
+  ImageContainer
+} from './LoginSignupStyles';
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-    //backend
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-
-    const login=(e) => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth,email,password )
-        .then((userCredential) => {
-            console.log(userCredential);
-        }).catch((error) => {
-                console.log(error);
-            });
+  const login = (e) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Please enter your email");
+      return;
     }
-    //frontend
+    if (!password) {
+      setError("Please enter your password");
+      return;
+    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        // Redirect to home page or dashboard
+        <Navigate to="/" />
+      })
+      .catch((error) => {
+        console.log(error);
+        switch (error.code) {
+          case "auth/invalid-email":
+            setError("Invalid email");
+            break;
+          case "auth/user-disabled":
+            setError("This account has been disabled");
+            break;
+          case "auth/user-not-found":
+            setError("This email is not registered");
+            break;
+          case "auth/wrong-password":
+            setError("Wrong password, please try again");
+            break;
+          case "auth/email-already-in-use":
+            setError("This email is already in use");
+            break;
+          default:
+            setError("Something went wrong, please try again");
+            break;
+        }
+      });
+  };
+
   return (
     <Container>
-    
+    <ImageContainer className="col-lg-12 col-md-8n col-sm-3">
+    </ImageContainer>
+      
       <Form onSubmit={login}>
         <Title>Login into your account!</Title>
         <br></br>
@@ -116,18 +73,26 @@ function Login() {
         
         <Row>
           <InputLabel>EMAIL</InputLabel>
-          <Input type="email" placeholder="Enter Email ID"  value = {email} onChange= {(e)=>setEmail(e.target.value)}/>
+          <Input type="email" placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} />
         </Row>
         <Row>
           <InputLabel>PASSWORD</InputLabel>
-          <Input type="password" placeholder="Enter Password" value = {password} onChange= {(e)=>setPassword(e.target.value)} />
+          <Input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
         </Row>
         
-        <Button type= "submit">LOGIN</Button>
-        <CheckboxLabel htmlFor="agree">
+        <Button>
+          <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>LOGIN</Link>
+        </Button>
+        
+        {/* <CheckboxLabel htmlFor="agree">
           <CheckboxInput type="checkbox" id="agree" name="agree" />
           Keep me logged in
-        </CheckboxLabel>
+        </CheckboxLabel> */}
+        <p style = {{color: "white"}}>Don't have an account?
+         <Link to="/signup">Sign up here</Link>
+      </p>
+        {error && <p style={{color: 'red'}}>{error}</p>}
+        
       </Form>
     </Container>
   );
