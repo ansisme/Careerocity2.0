@@ -3,7 +3,6 @@ import React , {useState} from 'react';
 import {auth } from '../../firebase';
 import {Link , Navigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import careerocityLogo from '../../assets/images/careerocityLogo.jpeg'
 import {
   Container,
   Form,

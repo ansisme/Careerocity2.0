@@ -265,3 +265,15 @@ h1 {
     background: #161717;
     padding: 50px;
 }
+
+.cardi {
+    height: 70%;
+    margin-top: 400px;
+    padding-bottom: 20px;
+}
+
+.footer {
+    height: 60%;
+    margin-top: 1000px;
+    padding-bottom: 20px;
+}
