@@ -84,7 +84,7 @@ function Homepage() {
           <a href="/" class="block px-3 py-2 rounded-lg hover:bg-gray-700 text-white md:hover:bg-blue-700 md:text-blue-700">Home</a>
         </li>
         <li>
-          <a href="/about" class="block px-3 py-2 rounded-lg hover:bg-gray-700 text-gray-400 md:hover:text-white md:hover:bg-blue-700 md:text-blue-700">About</a>
+          <a href="/aboutus" class="block px-3 py-2 rounded-lg hover:bg-gray-700 text-gray-400 md:hover:text-white md:hover:bg-blue-700 md:text-blue-700">About</a>
         </li>
         <li>
           <a href="/login" class="block px-3 py-2 rounded-lg hover:bg-gray-700 text-gray-400 md:hover:text-white md:hover:bg-blue-700 md:text-blue-700">Login</a>

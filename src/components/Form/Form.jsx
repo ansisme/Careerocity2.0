@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Card,
   Input,
@@ -42,7 +43,7 @@ function Form() {
 </div>
 
     
-
+<div >
     <Card color="transparent" shadow={false}>
       <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/3 mx-auto">
       
@@ -138,9 +139,12 @@ function Form() {
           
           
           <Link to="/" className="text-white">RESULTS</Link>
+
         </Button>
+        
       </form>
     </Card>
+    </div>
     </>
   );
 }

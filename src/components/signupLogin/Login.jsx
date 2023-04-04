@@ -18,7 +18,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const value = true;
   const login = (e) => {
     e.preventDefault();
     if (!email) {
@@ -60,6 +60,9 @@ function Login() {
       });
   };
 
+
+  
+      
   return (
     <Container>
     <ImageContainer className="col-lg-12 col-md-8n col-sm-3">
@@ -72,11 +75,17 @@ function Login() {
         
         <Row>
           <InputLabel>EMAIL</InputLabel>
-          <Input type="email" placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} />
+          
+          {/* if (!value) {
+            <p className='mt-10 font-bold text-center font-poppins text-red'>* Required</p> */}
+          {/* }else{ */}
+          <Input type="email" placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} required />
+            {/* } */}
+          
         </Row>
         <Row>
           <InputLabel>PASSWORD</InputLabel>
-          <Input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+          <Input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
         </Row>
         
         <Button>

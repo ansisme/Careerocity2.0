@@ -144,19 +144,19 @@ function Signup(){
         <hr></hr><br></br>
         <Row>
           <InputLabel>FULL NAME</InputLabel>
-          <Input type="name" placeholder="Enter Full Name" />
+          <Input type="name" placeholder="Enter Full Name" required />
         </Row>
         <Row>
           <InputLabel>EMAIL</InputLabel>
-          <Input type="email" placeholder="Enter Email ID" value = {email} onChange= {(e)=>setEmail(e.target.value)}/>
+          <Input type="email" placeholder="Enter Email ID" value = {email} onChange= {(e)=>setEmail(e.target.value)} required/>
         </Row>
         <Row>
           <InputLabel>PASSWORD</InputLabel>
-          <Input type="password" placeholder="Enter Password" value = {password} onChange= {(e)=>setPassword(e.target.value)}/>
+          <Input type="password" placeholder="Enter Password" value = {password} onChange= {(e)=>setPassword(e.target.value)} required/>
         </Row>
         <Row>
           <InputLabel>CONFIRM PASSWORD</InputLabel>
-          <Input type="password" placeholder="Confirm Password" value = {confirmPassword} onChange= {(e)=>setConfirmPassword(e.target.value)} />
+          <Input type="password" placeholder="Confirm Password" value = {confirmPassword} onChange= {(e)=>setConfirmPassword(e.target.value)} required/>
         </Row>
         {/* <Link to="/login" className = "link"> */}
           <Button>
