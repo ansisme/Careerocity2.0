@@ -146,7 +146,7 @@ function Homepage() {
               <Card.Body>
                 <Card.Title>Youtube Links</Card.Title>
                 <Card.Subtitle className="mb-2">23</Card.Subtitle>
-                <Card.Link href="/login">View Entire List</Card.Link>
+                <Card.Link href="/api/generateLinks">View Entire List</Card.Link>
               </Card.Body>
             </Card>
           </Col>
