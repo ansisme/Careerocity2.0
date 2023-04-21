@@ -144,6 +144,7 @@ function Signup(){
         <hr></hr><br></br>
         <Row>
           <InputLabel>FULL NAME</InputLabel>
+<<<<<<< HEAD
           <Input type="name" placeholder="Enter Full Name" required />
         </Row>
         <Row>
@@ -157,6 +158,21 @@ function Signup(){
         <Row>
           <InputLabel>CONFIRM PASSWORD</InputLabel>
           <Input type="password" placeholder="Confirm Password" value = {confirmPassword} onChange= {(e)=>setConfirmPassword(e.target.value)} required/>
+=======
+          <Input type="name" style={{backgroundColor: '#110f1a'}} placeholder="Enter Full Name" />
+        </Row>
+        <Row>
+          <InputLabel>EMAIL</InputLabel>
+          <Input type="email" style={{backgroundColor: '#110f1a'}}  placeholder="Enter Email ID" value = {email} onChange= {(e)=>setEmail(e.target.value)}/>
+        </Row>
+        <Row>
+          <InputLabel>PASSWORD</InputLabel>
+          <Input type="password"style={{backgroundColor: '#110f1a'}}  placeholder="Enter Password" value = {password} onChange= {(e)=>setPassword(e.target.value)}/>
+        </Row>
+        <Row>
+          <InputLabel>CONFIRM PASSWORD</InputLabel>
+          <Input type="password"style={{backgroundColor: '#110f1a'}}  placeholder="Confirm Password" value = {confirmPassword} onChange= {(e)=>setConfirmPassword(e.target.value)} />
+>>>>>>> master
         </Row>
         {/* <Link to="/login" className = "link"> */}
           <Button>

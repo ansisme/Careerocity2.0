@@ -4,11 +4,12 @@ import Signup from './components/signupLogin/Signup';
 import Login from './components/signupLogin/Login';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Homepage from './components/Homepage/Homepage';
-// import AboutUs from './components/AboutUs/AboutUs';
 import AboutUs from './components/AboutUs/AboutUs';
 import Form from './components/Form/Form';
-// import YoutubeLinks from './components/YoutubeLinks/YoutubeLinks';
 import ChatContainer from './components/YoutubeLinks/ChatContainer';
+import GithubSearch from './components/Github/GithubLinks';
+import ArticleSearch from './components/Research/ieee';
+import LinkedInSearch from './components/JobsInternships/JobsInternships';
 function App() {
   return (
    <Router>
@@ -19,7 +20,9 @@ function App() {
         <Route path="/about" element = {<AboutUs/>}/>
         <Route path="/form" element = {<Form/>}/>
         <Route path="/api/generateLinks" element = {<ChatContainer/>}/>
-        <Route path="/youtubeLinks" component={ChatContainer} />
+        <Route path="/api/generateGithubLinks" element={<GithubSearch />} />
+        <Route path="/api/searchJobs" element={<LinkedInSearch/>} />
+        <Route path="/api/generateArticles" element={<ArticleSearch/>} />
       </Routes>
     </Router>
   

@@ -75,6 +75,7 @@ function Login() {
         
         <Row>
           <InputLabel>EMAIL</InputLabel>
+<<<<<<< HEAD
           
           {/* if (!value) {
             <p className='mt-10 font-bold text-center font-poppins text-red'>* Required</p> */}
@@ -86,6 +87,13 @@ function Login() {
         <Row>
           <InputLabel>PASSWORD</InputLabel>
           <Input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
+=======
+          <Input type="email" style={{backgroundColor: '#110f1a'}} placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} />
+        </Row>
+        <Row>
+          <InputLabel>PASSWORD</InputLabel>
+          <Input type="password" style={{backgroundColor: '#110f1a'}} placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+>>>>>>> master
         </Row>
         
         <Button>

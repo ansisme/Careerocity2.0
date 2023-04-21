@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import careerocityLogo from '../../assets/images/careerocityLogo.jpeg'
 export const Container = styled.div `
-  background-color: #242424;
+  background-color: #110f1a;
   border-radius: 6px;
   border: 1px solid;
   font-family: "Poppins";
@@ -20,7 +20,7 @@ export const Form = styled.form `
   ${'' /* height: 960px; */}
   left: 1080px;
   top: 150px;
-  background: #242424;
+  background: #110f1a;
 
   & > * {
     margin: 10px 0;

@@ -85,9 +85,9 @@ function ChatContainer() {
           type="text"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Ask anything... :)"
+          placeholder="Search your career interests...."
         />
-        <button type="submit">Ask</button>
+        <button type="submit">Search</button>
       </form>
       <p className="response-area">
   {loading ? 'loading...' : (
