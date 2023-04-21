@@ -3,7 +3,6 @@ import React , {useState} from 'react';
 import {auth } from '../../firebase';
 import {Link , Navigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import careerocityLogo from '../../assets/images/careerocityLogo.jpeg'
 import {
   Container,
   Form,
@@ -73,11 +72,11 @@ function Login() {
         
         <Row>
           <InputLabel>EMAIL</InputLabel>
-          <Input type="email" placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} />
+          <Input type="email" style={{backgroundColor: '#110f1a'}} placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} />
         </Row>
         <Row>
           <InputLabel>PASSWORD</InputLabel>
-          <Input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+          <Input type="password" style={{backgroundColor: '#110f1a'}} placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
         </Row>
         
         <Button>

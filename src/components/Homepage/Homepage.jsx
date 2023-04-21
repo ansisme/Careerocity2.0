@@ -1,8 +1,5 @@
 import React from 'react'
-import {Navigate} from 'react-router-dom';
-import YoutubeLogo from '../../assets/images/YoutubeLogo.png';
-import careerocityLogo  from '../../assets/images/careerocityLogo.jpeg';
-import ResearchPaper from '../../assets/images/ResearchPaper.png';
+import YoutubeLogo from '../../assets/images/YoutubeLogo.png';import ResearchPaper from '../../assets/images/ResearchPaper.png';
 import JobsLogo from '../../assets/images/JobsLogo.png';
 import GithubLogo from '../../assets/images/GithubLogo.png';
 import LinkedInLogo from '../../assets/images/LinkedInLogo.png';
@@ -10,40 +7,75 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../components/Homepage/homepage.css";
 import "./homepage.css";
-import {Container, Row, Col, InputGroup, FormControl} from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import {Container, Row, Col} from 'react-bootstrap';
+import Footer from "../Footer/Footer";
+import styles from '../../style';
+import Highlight from './Highlighted';
+import Navbar from './Navbar';
+const cards = [
+  {
+    title: 'Card 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+  {
+    title: 'Card 2',
+    description: 'Praesent vel lectus at sapien rhoncus imperdiet nec vel nisi.',
+  },
+  {
+    title: 'Card 3',
+    description: 'Etiam sed lectus at risus mollis egestas in vitae orci.',
+  },
+];
+
+
+const Cardi = ({ title, description }) => (
+  <div className="bg-black cardi rounded-md shadow-lg p-4 text-white">
+    <h2 className="text-xl font-bold">{title}</h2>
+    <p className="mt-2">{description}</p>
+  </div>
+);
+
+const CardList = ({ cards }) => (
+  <div className="flex flex-wrap justify-center ">
+    {cards.map((card, index) => (
+      <div key={index} className="w-full sm:w-1/2 md:w-1/3 p-4 ">
+        <Cardi {...card} />
+      </div>
+    ))}
+  </div>
+);
+
 function Homepage() {
   
   return (
 
-     <div className="homepage">
-    <Container fluid>  
-      <Row xs={12}  md={4} className=" gy-4">
-      <Col className='sidebar' xs={12} md={2}>
-           <img src ={careerocityLogo} className='logo' alt='logo'/>
-      </Col>
-      {/* <Col className='homelogo'><FontAwesomeIcon icon={faSearch} /></Col> */}
-      
-      <Row>
-        <Col>
-          <h1 className='heading'>
-          Careerocity
-          </h1>
-        </Col>
-      </Row>
+<>
 
-      <Row className='searchbar'>
-        <Col >
-        <InputGroup className="mb-3">
-  <FormControl placeholder="Data Science" aria-label="Search"/>
-  <InputGroup.Text>
-  
-    <FontAwesomeIcon icon={faSearch} />
-  </InputGroup.Text>
-  </InputGroup>
-        </Col>
-      </Row>
+
+     <div className="homepage">
+    {/* <Container fluid >   */}
+    <div className= " w-full overflow-hidden">
+      <div className= {`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Navbar/>
+        </div>
+      </div>
+      </div>
+
+    {/* </Container> */}
+
+    <br></br>
+    <br></br>
+     
+    <div className = { ` ${styles.flexStart}`}>
+        <div className= {`${styles.boxWidth}`}>
+          <Highlight/>
+        </div>
+      </div>
+    
+    <Container fluid>
+
+     
     
       <Col xs={12} md={10}>
         <Row xs={12} sm={8} md={4} className="gx-2 gx-md-1 gy-4">
@@ -74,7 +106,7 @@ function Homepage() {
               <Card.Body>
                 <Card.Title>Youtube Links</Card.Title>
                 <Card.Subtitle className="mb-2">23</Card.Subtitle>
-                <Card.Link href="/login">View Entire List</Card.Link>
+                <Card.Link href="/api/generateLinks">View Entire List</Card.Link>
               </Card.Body>
             </Card>
           </Col>
@@ -94,7 +126,7 @@ function Homepage() {
               <Card.Body>
                 <Card.Title>Github Repos</Card.Title>
                 <Card.Subtitle className="mb-2">30</Card.Subtitle>
-                <Card.Link href="/login">View Entire List</Card.Link>
+                <Card.Link href="/api/generateGithubLinks">View Entire List</Card.Link>
               </Card.Body>
             </Card>
             
@@ -103,27 +135,39 @@ function Homepage() {
         </Row>
         <Row>
         <Col>
-        <h1 >
+        <h1 className="trackheading" >
       Keep track of your progress here !
       </h1>
         </Col>
         </Row>
+{/*         
         <Row>
-          <Col className='components'>
-          </Col>
-          <Col className='components'>
-          </Col>
-          <Col className='components'>
-          </Col>
-        </Row>
+          <CardList cards= {cards} />
+        </Row> */}
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br><br></br>
       </Col>
-      <Row>
+      {/* <Row>
       <Col className='rightbar' xs={12} md={1}></Col>
-      </Row>
+      </Row> */}
+      <Row>
+      <Col>
+      <Footer className = "footer"/>
+      </Col>
+        
       </Row>
     </Container>
     
   </div>
+  </>
   );
 }
 

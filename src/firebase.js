@@ -8,7 +8,7 @@ import { getAuth, EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_apiKey,
+    apiKey: "AIzaSyDPH79bxAe0KaSP7KBs8dkRY9oQGK8DrrY",
     authDomain: "careerocity-2f25a.firebaseapp.com",
     projectId: "careerocity-2f25a",
     storageBucket: "careerocity-2f25a.appspot.com",
