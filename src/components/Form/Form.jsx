@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   Card,
   Input,
@@ -7,10 +7,101 @@ import {
 } from "@material-tailwind/react";
 import careerGrowth from '../../assets/images/careerGrowth.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link } from 'react-router-dom';
-
+// import httpClient from '../../httpClient';
+// import fetch from 'node-fetch';
 function Form() {
-  return (
+const [formData, setFormData] = useState({
+    databaseKnowledge: '',
+    computerArchitecture: '',
+    cyberSecurity: '',
+    softwareDevelopment: '',
+    programmingSkills: '',
+    projectManagementSkills: '',
+    technicalCommunicationExperience: '',
+    interestsInAiOrMl: '',
+    businessAnalysisSkills: '',
+    communicationSkills: '',
+    interestInDataVisualizationOrAnalysis: '',
+    experience: '',
+  });
+
+   const [jobs, setJobs] = useState([]);
+   const [loading, setLoading] = useState(false);
+   const handleSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const payload = { 
+      key: Object.values(formData).map((value) => parseInt(value)) 
+    };
+    fetch('http://127.0.0.1:5000/predict', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'mode': 'cors'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      setJobs(data.jobs);
+      setLoading(false);
+      console.log(data);
+    })
+    .catch((error) => {
+      setLoading(false);
+      console.error(error);
+      alert('An error occurred while fetching the job predictions. Please try again later.');
+    });
+    
+  };
+
+  const isFormValid = () => {
+    const values = Object.values(formData);
+    return values.every((value) => value.trim() !== '');
+  };
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+//new
+
+//   try {
+//     const response = await fetch('http://localhost:3001/predict', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({ prompt })
+//     });
+
+//     const result = await response.json();
+//     console.log(result);
+//     // Do something with the result, such as displaying it on the webpage
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
+
+
+// const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     // setLoading(true);
+//     try {
+//     const response = await fetch('http://localhost:5675/predict', {
+//           headers: {
+// 'Content-Type': 'application/json'
+//           }}
+//     )
+//       const result = await response.json();
+//     console.log(result);
+//     } catch (error) {
+//       console.error(error);
+//     }
+// }
+
+return (
 <>
 <div>
 <Typography
@@ -42,24 +133,31 @@ function Form() {
   </div>
 </div>
 
-    
+
 <div >
+<div>
+    <span className='text-gradient flex-1 font-poppins font-bold text-[70px] text-white ss:text-[72px] ss:leadimg-[100px] leading-[75px]'>Rate yourself from 1- 10<br className='sm:block hidden'/>{"  "}</
+      span> {" "}
+</div>
     <Card color="transparent" shadow={false}>
-      <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/3 mx-auto">
+      <form onSubmit = {handleSubmit} className="mt-8 mb-2 w-full max-w-screen-lg sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/3 mx-auto">
       
         <div className="mb-10 flex flex-col ">
       <Typography
         color="gray"
         className="mt-1 font-semibold text-xl  font-poppins text-white"
       >
-       Rate yourself in Logical Quotient Rating (1-10)
+       Database knowledge
       </Typography>
       
           <Input
             size="xl"
-            type="text"
+            type='number'
             required
+            name='databaseKnowledge'
             className="font-poppins text-white mb-5"
+            value={formData.databaseKnowledge}
+            onChange={handleChange}
           />
 
 
@@ -67,13 +165,17 @@ function Form() {
         color="gray"
         className="mt-1 font-semibold text-xl font-poppins text-white"
       >
-        Rate yourself in Coding Skills  (1-10)
+       Computer Architecture
       </Typography>
 
           <Input
             size="xl"
             required
+            type='number'
+            name='computerArchitecture'
             className="font-poppins text-white mb-5"
+            value={formData.computerArchitecture}
+            onChange={handleChange}
           />
 
           
@@ -81,14 +183,16 @@ function Form() {
         color="gray"
         className="mt-1 font-semibold text-xl  font-poppins text-white"
       >
-        Rate yourself in Public Speaking (1-10)
+        Cyber Security
       </Typography>
           <Input
-            type="password"
+            type="number"
             size="xl"
-            
+            name='cyberSecurity'
             required
             className="font-poppins text-white mb-5"
+            value={formData.cyberSecurity}
+            onChange={handleChange}
           />
 
 
@@ -96,52 +200,172 @@ function Form() {
         color="gray"
         className="mt-1 font-semibold text-xl  font-poppins text-white"
       >
-      Which career path are you interested in?
+      Software Development
       </Typography>
           <Input
-            type="password"
+            type="number"
             size="xl"
+            name='softwareDevelopment'
             required
             className="font-poppins text-white mb-5"
+            value={formData.softwareDevelopment}
+            onChange={handleChange}
           />
 
 <Typography
         color="gray"
         className="mt-1 font-semibold text-xl  font-poppins text-white"
       >
-        Your interested subject?
+      Programming Skills
       </Typography>
           <Input
-            type="password"
+            type="number"
             size="xl"
-            
+            name='programmingSkills'
             required
             className="font-poppins text-white mb-5"
+            value={formData.programmingSkills}
+            onChange={handleChange}
           />
 
 <Typography
         color="gray"
         className="mt-1 font-semibold text-xl  font-poppins text-white"
       >
-        Are you currently looking for Internships/Jobs?
+        Project Management Skills
       </Typography>
           <Input
-            type="password"
+            type="number"
             size="xl"
-            
+            name='projectManagementSkills'
             required
             className="font-poppins text-white mb-5"
+            value={formData.projectManagementSkills}
+            onChange={handleChange}
+          />
+
+
+<Typography
+        color="gray"
+        className="mt-1 font-semibold text-xl  font-poppins text-white"
+      >
+        Technical Communication experience
+      </Typography>
+          <Input
+            type="number"
+            size="xl"
+           name='technicalCommunicationExperience'
+            required
+            className="font-poppins text-white mb-5"
+            value={formData.technicalCommunicationExperience}
+            onChange={handleChange}
+          />
+
+<Typography
+        color="gray"
+        className="mt-1 font-semibold text-xl  font-poppins text-white"
+      >
+        Interests in AI or ML
+      </Typography>
+          <Input
+            type="number"
+            size="xl"
+           name='interestsInAiOrMl'
+            required
+            className="font-poppins text-white mb-5"
+            value={formData.interestsInAiOrMl}
+            onChange={handleChange}
+          />
+
+
+<Typography
+        color="gray"
+        className="mt-1 font-semibold text-xl  font-poppins text-white"
+      >
+      Business analysis skills
+      </Typography>
+          <Input
+            type="number"
+            size="xl"
+            name='businessAnalysisSkills'
+            required
+            className="font-poppins text-white mb-5"
+            value={formData.businessAnalysisSkills}
+            onChange={handleChange}
+          />
+
+<Typography
+        color="gray"
+        className="mt-1 font-semibold text-xl  font-poppins text-white"
+      >
+     Communication Skills
+      </Typography>
+          <Input
+            type="number"
+            size="xl"
+           name='communicationSkills'
+            required
+            className="font-poppins text-white mb-5"
+            value={formData.commSkills}
+            onChange={handleChange}
+          />
+
+<Typography
+        color="gray"
+        className="mt-1 font-semibold text-xl  font-poppins text-white"
+      >
+     Interest in visualization or analysis of data 
+      </Typography>
+          <Input
+            type="number"
+            size="xl"
+           name='interestInDataVisualizationOrAnalysis'
+            required
+            className="font-poppins text-white mb-5"
+            value={formData.interestInDataVisualizationOrAnalysis}
+            onChange={handleChange}
+          />
+
+<Typography
+        color="gray"
+        className="mt-1 font-semibold text-xl  font-poppins text-white"
+      >
+    Experience im graphic designing
+      </Typography>
+          <Input
+            type="number"
+            size="xl"
+            name='experience'
+            required
+            className="font-poppins text-white mb-5"
+            value={formData.experience}
+            onChange={handleChange}
           />
 
 
         </div>
-        <Button className="mt-6 font-poppins text-xl text-white font-poppins font-bold py-3 px-0 border-0 rounded-md bg-blue-600  font-poppins  cursor-pointer hover:bg-transparent hover:text-blue-600" fullWidth>
+        <Button  disabled={!isFormValid() || loading} type="submit" className="mt-6 font-poppins text-xl text-white font-poppins font-bold py-3 px-0 border-0 rounded-md bg-blue-600  font-poppins  cursor-pointer hover:bg-transparent hover:text-blue-600" fullWidth>
           
           
-          <Link to="/" className="text-white">RESULTS</Link>
+          {/* <Link to="/" className="text-white"> */}
+          RESULTS
+          {/* </Link> */}
 
         </Button>
-        
+        {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+        <h2>Recommended jobs</h2>
+        <ol className="list-disc pl-4">
+          {jobs.map((job, index) => (
+            <li key={index}>
+                {job}
+            </li>
+          ))}
+        </ol>
+        </div>
+      )}
       </form>
     </Card>
     </div>
