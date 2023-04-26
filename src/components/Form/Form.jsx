@@ -7,8 +7,7 @@ import {
 } from "@material-tailwind/react";
 import careerGrowth from '../../assets/images/careerGrowth.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import httpClient from '../../httpClient';
-// import fetch from 'node-fetch';
+import Predict from '../Predict/Predict';
 import axios from 'axios';
 function Form() {
 const [formData, setFormData] = useState({
@@ -331,7 +330,7 @@ return (
             size="xl"
            name='interestInDataVisualizationOrAnalysis'
             required
-            className="font-poppins text-white mb-5"
+            className="font-poppins text-white "
             value={formData.interestInDataVisualizationOrAnalysis}
             onChange={handleChange}
           />
@@ -340,7 +339,7 @@ return (
         color="gray"
         className="mt-1 font-semibold text-xl  font-poppins text-white"
       >
-    Experience im graphic designing
+    Experience in graphic designing
       </Typography>
           <Input
             type="number"
@@ -366,7 +365,7 @@ return (
   {loading ? 'Loading...' : 'Results'}
 </Button>
 
-        {jobs.length > 0 && (
+        {/* {jobs.length > 0 && (
   <div className="mt-10">
     <Typography
       color="gray"
@@ -381,7 +380,13 @@ return (
       ))}
     </ul>
   </div>
-)}
+)} */}
+<div>
+
+  <Predict
+    // Link to = "/result" 
+   jobs={jobs}/>
+</div>
 
       </form>
     </Card>
