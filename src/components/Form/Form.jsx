@@ -9,6 +9,7 @@ import careerGrowth from '../../assets/images/careerGrowth.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import httpClient from '../../httpClient';
 // import fetch from 'node-fetch';
+import axios from 'axios';
 function Form() {
 const [formData, setFormData] = useState({
     databaseKnowledge: '',
@@ -30,30 +31,34 @@ const [formData, setFormData] = useState({
    const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    const payload = { 
-      key: Object.values(formData).map((value) => parseInt(value)) 
+  
+    const payload = {
+      skill_1: formData.databaseKnowledge,
+      skill_2: formData.computerArchitecture,
+      skill_3: formData.cyberSecurity,
+      skill_4: formData.softwareDevelopment,
+      skill_5: formData.programmingSkills,
+      skill_6: formData.projectManagementSkills,
+      skill_7: formData.technicalCommunicationExperience,
+      skill_8: formData.interestsInAiOrMl,
+      skill_9: formData.businessAnalysisSkills,
+      skill_10: formData.communicationSkills,
+      skill_11: formData.interestInDataVisualizationOrAnalysis,
+      skill_12: formData.experience,
     };
-    fetch('http://127.0.0.1:5000/predict', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'mode': 'cors'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      setJobs(data.jobs);
-      setLoading(false);
-      console.log(data);
-    })
-    .catch((error) => {
-      setLoading(false);
-      console.error(error);
-      alert('An error occurred while fetching the job predictions. Please try again later.');
-    });
-    
+  
+    axios.post('http://127.0.0.1:5000/predict', payload)
+      .then((response) => {
+        setJobs(response.data['Your Recommended Job']);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+        alert('An error occurred while fetching the job predictions. Please try again later.');
+      });
   };
+  
 
   const isFormValid = () => {
     const values = Object.values(formData);
@@ -100,6 +105,11 @@ const [formData, setFormData] = useState({
 //       console.error(error);
 //     }
 // }
+
+
+const handleResultsClick = () => {
+  handleSubmit({ preventDefault: () => {} });
+};
 
 return (
 <>
@@ -344,28 +354,35 @@ return (
 
 
         </div>
-        <Button  disabled={!isFormValid() || loading} type="submit" className="mt-6 font-poppins text-xl text-white font-poppins font-bold py-3 px-0 border-0 rounded-md bg-blue-600  font-poppins  cursor-pointer hover:bg-transparent hover:text-blue-600" fullWidth>
-          
-          
-          {/* <Link to="/" className="text-white"> */}
-          RESULTS
-          {/* </Link> */}
+        {/* <Button  disabled={!isFormValid() || loading} type="submit" className="mt-6 font-poppins text-xl text-white font-poppins font-bold py-3 px-0 border-0 rounded-md bg-blue-600  font-poppins  cursor-pointer hover:bg-transparent hover:text-blue-600" fullWidth>
+            RESULTS
+        </Button> */}
+        <Button
+  color="blueGray"
+  disabled={!isFormValid() || loading}
+  className="mt-5 mb-5 w-full"
+  onClick={handleResultsClick}
+>
+  {loading ? 'Loading...' : 'Results'}
+</Button>
 
-        </Button>
-        {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-        <h2>Recommended jobs</h2>
-        <ol className="list-disc pl-4">
-          {jobs.map((job, index) => (
-            <li key={index}>
-                {job}
-            </li>
-          ))}
-        </ol>
-        </div>
-      )}
+        {jobs.length > 0 && (
+  <div className="mt-10">
+    <Typography
+      color="gray"
+      variant="h3"
+      className="mb-5 font-normal text-center font-poppins text-white"
+    >
+      Recommended Jobs
+    </Typography>
+    <ul>
+      {jobs.map((job) => (
+        <li key={job}>{job}</li>
+      ))}
+    </ul>
+  </div>
+)}
+
       </form>
     </Card>
     </div>

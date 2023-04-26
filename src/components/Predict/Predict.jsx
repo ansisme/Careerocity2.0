@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Predict = () => {
+const Predict = ({jobs}) => {
   return (
-    <div>Predict</div>
+    <div>{jobs}</div>
   )
 }
 
