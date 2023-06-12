@@ -27,6 +27,7 @@ const [formData, setFormData] = useState({
 
    const [jobs, setJobs] = useState([]);
    const [loading, setLoading] = useState(false);
+   
    const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -46,7 +47,7 @@ const [formData, setFormData] = useState({
       skill_12: formData.experience,
     };
   
-    axios.post('http://127.0.0.1:5000/predict', payload)
+    axios.post('https://api3-282y.onrender.com/predict', payload)
       .then((response) => {
         setJobs(response.data['Your Recommended Job']);
         setLoading(false);

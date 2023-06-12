@@ -18,7 +18,7 @@ const Highlight = () => {
       </div>
 
     <div className={`py-[6] text-left flex flex-row justify-end w-full items-center`}>
-      <h1 className = {`flex-1 font-poppins font-bold text-[70px] text-white ss:text-[72px] ss:leadimg-[100px] leading-[75px]` }>The Only <br className="sm:block hidden"/>{" "}
+      <h1 className = {`flex-1 font-poppins font-bold text-[70px] text-white ss:text-[72px] ss:leading-[100px] leading-[75px]` }>The Only <br className="sm:block hidden"/>{" "}
       <span className='text-gradient'>Central Repo <br className='sm:block hidden'/>{"  "}</
       span> {" "}
       
