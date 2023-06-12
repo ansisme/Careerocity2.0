@@ -68,7 +68,7 @@ function ChatContainer() {
     setLoading(true);
 
     axios
-      .post('http://localhost:3001/api/generateLinks', { prompt })
+      .post('https://ytapi-idu9.onrender.com/api/generateLinks', { prompt })
       .then((res) => {
         setResponse(res.data);
         setLoading(false);
