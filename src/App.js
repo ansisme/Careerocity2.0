@@ -10,6 +10,7 @@ import ChatContainer from './components/YoutubeLinks/ChatContainer';
 import GithubSearch from './components/Github/GithubLinks';
 import ArticleSearch from './components/Research/ieee';
 import LinkedInSearch from './components/JobsInternships/JobsInternships';
+import Predict from './components/Predict/Predict';
 function App() {
   return (
    <Router>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/api/generateGithubLinks" element={<GithubSearch />} />
         <Route path="/api/searchJobs" element={<LinkedInSearch/>} />
         <Route path="/api/generateArticles" element={<ArticleSearch/>} />
+        <Route path='/predict' element={<Predict/>} />
       </Routes>
     </Router>
   
