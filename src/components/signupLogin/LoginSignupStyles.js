@@ -14,11 +14,10 @@ export const Container = styled.div `
 export const Form = styled.form `
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: absolute;
-  width: 650px;
+  width: 50%px;
   ${'' /* height: 960px; */}
-  left: 1080px;
+  left: 65%;
   top: 150px;
   background: #110f1a;
 
@@ -37,7 +36,7 @@ export const Row = styled.div `
 
 export const Title = styled.h2 `
   color: #fff;
-  font-size: 30px;
+  font-size: 20px;
 `;
 
 export const InputLabel = styled.label `
@@ -45,7 +44,7 @@ export const InputLabel = styled.label `
   width: 30%;
   font-weight: 500;
   text-align: left;
-  font-size: 15px;
+  font-size: 12px;
 `;
 
 export const Input = styled.input `
@@ -54,7 +53,7 @@ export const Input = styled.input `
   border: solid 0.5px;
   font-family: "Poppins", sans-serif;
  
-  font-size: 16px;
+  font-size: 14px;
   width: 70%;
   background-color: #333;
   color: #fff;
@@ -72,7 +71,7 @@ export const Button = styled.button `
   background-color: #1565d8;
   color: #fff;
   font-family: "Poppins";
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
 
   &:hover {
@@ -86,7 +85,7 @@ export const CheckboxLabel = styled.label `
   align-items: center;
   color: #fff;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export const CheckboxInput = styled.input `
@@ -107,15 +106,13 @@ export const ErrorContainer = styled.div `
 
 export const ErrorText = styled.p `
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 export const ImageContainer = styled.div `
 position: absolute;
-width: 700px;
-height: 1000px;
-left: 0px;
-width: 50%;
-height: 100%;
+left: 2.15%;
+width: 60%;
+height: 99%;
 background: linear-gradient(0deg, rgba(21, 101, 216, 0.9), rgba(21, 101, 216, 0.9)), url(${careerocityLogo});
 `;

@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import React , {useState} from 'react';
-import {auth } from '../../firebase';
-import {Link , Navigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { auth } from '../../firebase';
+import { Link, Navigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Container,
@@ -61,40 +61,40 @@ function Login() {
   };
 
 
-  
-      
+
+
   return (
     <Container>
-    <ImageContainer className="col-lg-12 col-md-8n col-sm-3">
-    </ImageContainer>
-      
+      <ImageContainer className="col-lg-12 col-md-8 col-sm-3">
+      </ImageContainer>
+
       <Form onSubmit={login}>
         <Title>Login into your account!</Title>
         <br></br>
         <hr></hr><br></br>
-        
+
         <Row>
           <InputLabel>EMAIL</InputLabel>
-          <Input type="email" style={{backgroundColor: '#110f1a'}} placeholder="Enter Email ID"  value={email} onChange={(e)=>setEmail(e.target.value)} />
+          <Input type="email" style={{ backgroundColor: '#110f1a' }} placeholder="Enter Email ID" value={email} onChange={(e) => setEmail(e.target.value)} />
         </Row>
         <Row>
           <InputLabel>PASSWORD</InputLabel>
-          <Input type="password" style={{backgroundColor: '#110f1a'}} placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+          <Input type="password" style={{ backgroundColor: '#110f1a' }} placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </Row>
-        
+
         <Button>
           <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>LOGIN</Link>
         </Button>
-        
+
         {/* <CheckboxLabel htmlFor="agree">
           <CheckboxInput type="checkbox" id="agree" name="agree" />
           Keep me logged in
         </CheckboxLabel> */}
-        <p style = {{color: "white"}}>Don't have an account?
-         <Link to="/signup">Sign up here</Link>
-      </p>
-        {error && <p style={{color: 'red'}}>{error}</p>}
-        
+        <p style={{ color: "white" }} className='text-[14px] text-left' >Don't have an account?
+          <Link to="/signup">Sign up here</Link>
+        </p>
+        {error && <p style={{ color: 'red' }}  className='text-[14px] text-left'>{error}</p>}
+
       </Form>
     </Container>
   );

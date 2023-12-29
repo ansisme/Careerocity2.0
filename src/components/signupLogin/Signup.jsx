@@ -135,7 +135,7 @@ function Signup(){
   return (
     
     <Container>
-    <ImageContainer className="col-lg-12 col-md-8n col-sm-3">
+    <ImageContainer className="col-lg-12 col-md-8 col-sm-3">
        {/* <img src={careerocityLogo} alt="img" /> */}
     </ImageContainer>
       <Form onSubmit={signup}>
@@ -185,7 +185,7 @@ function Signup(){
           I agree to the terms and conditions
         </CheckboxLabel>
         
-        <p style ={{color: "white"}}>Already have an account?
+        <p style ={{color: "white"}}  className='text-[14px] text-left'>Already have an account?
         <Link to="/login"  >Login here</Link> 
         </p>
         {error && <p style={{color: 'red'}}>{error}</p>}

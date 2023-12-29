@@ -70,22 +70,22 @@ app.post("/api/generateGithubLinks", async(req, res) => {
 });
 
 
-//flask API
-// app.post('/predict', async(req, res) => {
-//     const prompt = req.body.prompt;
+// flask API
+app.post('/predict', async(req, res) => {
+    const prompt = req.body.prompt;
 
-//     try {
-//         const response = await axios.post('http://localhost:5675/predict', {
-//             prompt
-//         });
+    try {
+        const response = await axios.post('https://api3-282y.onrender.com/predict', {
+            prompt
+        });
 
-//         const result = response.data;
-//         res.json(result);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send('An error occurred while fetching the prediction.');
-//     }
-// });
+        const result = response.data;
+        res.json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('An error occurred while fetching the prediction.');
+    }
+});
 
 
 app.listen(port, () => {
