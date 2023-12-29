@@ -10,7 +10,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     background-color: #21BB85;
-    width: 420px;
+    width: 350px;
     height: 200px;
     left: 136px;
     top: 185px;
@@ -21,7 +21,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     background-color: #FAD85D;
-    width: 420px;
+    width: 350px;
     height: 200px;
     left: 136px;
     top: 185px;
@@ -32,7 +32,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     background-color: #4C6BC7;
-    width: 420px;
+    width: 350px;
     height: 200px;
     left: 136px;
     top: 185px;
@@ -43,7 +43,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     background-color: #8A8A8A;
-    width: 420px;
+    width: 350px;
     height: 200px;
     left: 136px;
     top: 185px;
@@ -54,7 +54,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     background-color: #FE7070;
-    width: 420px;
+    width: 350px;
     height: 200px;
     left: 136px;
     top: 185px;
@@ -67,60 +67,60 @@
 
 .img1 {
     position: absolute;
-    width: 220px;
-    height: 210px;
-    left: 210px;
+    width: 180px;
+    height: 170px;
+    left: 190px;
     top: 0px;
     filter: drop-shadow(0px 4px 4px #222625);
 }
 
 .img2 {
     position: absolute;
-    width: 330px;
-    height: 200px;
-    left: 160px;
+    width: 280px;
+    height: 170px;
+    left: 120px;
     top: 0px;
     filter: drop-shadow(0px 4px 4px #222625);
 }
 
 .img3 {
     position: absolute;
-    width: 240px;
-    height: 130px;
-    left: 200px;
+    width: 190px;
+    height: 90px;
+    left: 170px;
     top: 40px;
     filter: drop-shadow(0px 4px 4px #222625);
 }
 
 .img4 {
     position: absolute;
-    width: 190px;
-    height: 190px;
-    left: 215px;
+    width: 150px;
+    height: 150px;
+    left: 195px;
     top: 0px;
     filter: drop-shadow(0px 4px 4px #222625);
 }
 
 .img5 {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    left: 230px;
+    width: 110px;
+    height: 110px;
+    left: 200px;
     top: 15px;
     filter: drop-shadow(0px 4px 4px #222625);
 }
 
 .card-title {
     position: absolute;
-    width: 195px;
-    height: 24px;
-    left: 24px;
+    width: 155px;
+    /* height: 24px; */
+    /* left: 24px; */
     top: 22px;
     margin-bottom: 5px;
     font-family: 'Poppins';
-    font-style: normal;
+    font-style: 'semibold';
     font-weight: 500;
-    font-size: 30px;
+    font-size: 22px;
     line-height: 32px;
     letter-spacing: 0.03em;
     color: #131215;

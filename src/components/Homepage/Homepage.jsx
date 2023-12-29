@@ -85,7 +85,7 @@ function Homepage() {
               <Card.Img variant="top" className='img1' src={JobsLogo} />
               <Card.Body>
                 <Card.Title>Jobs and Internships</Card.Title>
-                <Card.Subtitle className="mb-2">15</Card.Subtitle>
+                {/* <Card.Subtitle className="mb-2">15</Card.Subtitle> */}
                 <Card.Link href="/login">View Entire List</Card.Link>
               </Card.Body>
             </Card>
@@ -95,7 +95,7 @@ function Homepage() {
               <Card.Img className='img2'variant="top" src={ResearchPaper} />
               <Card.Body>
                 <Card.Title>Research Papers</Card.Title>
-                <Card.Subtitle className="mb-2">57</Card.Subtitle>
+                {/* <Card.Subtitle className="mb-2">57</Card.Subtitle> */}
                 <Card.Link href="/login">View Entire List</Card.Link>
               </Card.Body>
             </Card>
@@ -105,7 +105,7 @@ function Homepage() {
               <Card.Img className='img3' variant="top"src={YoutubeLogo} />
               <Card.Body>
                 <Card.Title>Youtube Links</Card.Title>
-                <Card.Subtitle className="mb-2">23</Card.Subtitle>
+                {/* <Card.Subtitle className="mb-2">23</Card.Subtitle> */}
                 <Card.Link href="/api/generateLinks">View Entire List</Card.Link>
               </Card.Body>
             </Card>
@@ -115,7 +115,7 @@ function Homepage() {
               <Card.Img variant="top" className='img4' src={LinkedInLogo} />
               <Card.Body>
                 <Card.Title>LinkedIn Profiles</Card.Title>
-                <Card.Subtitle className="mb-2">5</Card.Subtitle>
+                {/* <Card.Subtitle className="mb-2">5</Card.Subtitle> */}
                 <Card.Link href="/login">View Entire List</Card.Link>
               </Card.Body>
             </Card>
@@ -125,7 +125,7 @@ function Homepage() {
               <Card.Img variant="top" className='img5' src={GithubLogo} />
               <Card.Body>
                 <Card.Title>Github Repos</Card.Title>
-                <Card.Subtitle className="mb-2">30</Card.Subtitle>
+                {/* <Card.Subtitle className="mb-2">30</Card.Subtitle> */}
                 <Card.Link href="/api/generateGithubLinks">View Entire List</Card.Link>
               </Card.Body>
             </Card>
@@ -135,9 +135,9 @@ function Homepage() {
         </Row>
         <Row>
         <Col>
-        <h1 className="trackheading" >
+        {/* <h1 className="trackheading" >
       Keep track of your progress here !
-      </h1>
+      </h1> */}
         </Col>
         </Row>
 {/*         
@@ -159,9 +159,9 @@ function Homepage() {
       <Col className='rightbar' xs={12} md={1}></Col>
       </Row> */}
       <Row>
-      <Col>
+      {/* <Col>
       <Footer className = "footer"/>
-      </Col>
+      </Col> */}
         
       </Row>
     </Container>

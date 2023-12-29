@@ -14,7 +14,7 @@ function AboutUs() {
       <p className="text-lg leading-7 mb-4 text-white para">
        
       </p>
-      <Footer className="mt-10" />
+      {/* <Footer className="mt-10" /> */}
     </div>
   );
 }
